@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Performance & Inventory Optimization | Natnael Birhanu</title>
+    <link rel="stylesheet" href="style_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .project-detail {
+            padding: 100px 0 2rem 0;
+            min-height: 100vh;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .project-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-lighter);
+            margin-bottom: 1rem;
+        }
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .task-section {
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .task-section:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        .task-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .task-description {
+            margin-bottom: 2rem;
+        }
+        .task-item {
+            margin-bottom: 1.5rem;
+        }
+        .task-item strong {
+            color: var(--text-lighter);
+        }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .screenshot-item {
+            text-align: center;
+        }
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .screenshot-item img:hover {
+            transform: scale(1.02);
+        }
+        .screenshot-caption {
+            margin-top: 0.5rem;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 149, 246, 0.4);
+        }
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+         .kpi-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 3rem 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+        .kpi-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .kpi-label {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index_3.html" style="text-decoration: none; color: inherit;">Natnael Birhanu</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index_3.html#about">About</a></li>
+                <li><a href="index_3.html#skills">Skills</a></li>
+                <li><a href="index_3.html#experience">Experience</a></li>
+                <li><a href="index_3.html#projects">Projects</a></li>
+                <li><a href="index_3.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <a href="index_3.html#projects" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            
+            <div class="project-header">
+                <h1>Product Performance & Inventory Optimization</h1>
+                <p class="project-highlight">Comprehensive product analysis and inventory optimization for 3,500+ SKUs</p>
+            </div>
+
+            <!-- KPI Banner -->
+            <div class="kpi-banner">
+                <div class="kpi-item">
+                    <div class="kpi-value">3,500+</div>
+                    <div class="kpi-label">SKUs Analyzed</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">80/20</div>
+                    <div class="kpi-label">Revenue Distribution</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">15</div>
+                    <div class="kpi-label">High-Risk SKUs</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">8</div>
+                    <div class="kpi-label">Seasonal Categories</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">12</div>
+                    <div class="kpi-label">Declining Products</div>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <!-- Data Preparation -->
+                <div class="task-section">
+                    <h3><i class="fas fa-database"></i> Data Preparation & Libraries</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Loaded comprehensive data analysis libraries and read Online Retail.xlsx dataset. Cleaned raw dataframe by dropping null values and removing non-positive quantities.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Optimized dataset ready for comprehensive product performance analysis with clean, reliable data.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (63).png" alt="Data Preparation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Data preparation and cleaning code</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (64).png" alt="Cleaned Dataset" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Cleaned product dataset preview</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Aggregation -->
+                <div class="task-section">
+                    <h3><i class="fas fa-calculator"></i> Product Aggregation & KPIs</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Created line-level revenue and grouped by StockCode + Description to compute product KPIs including Total_revenue, Total_Quantity, Num_Transactions, and sales dates.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Comprehensive product_performance dataframe with detailed product-level metrics for 3,500+ SKUs.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (65).png" alt="Product Aggregation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Product aggregation implementation</div>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <!-- Sales Velocity -->
+                <div class="task-section">
+                    <h3><i class="fas fa-running"></i> Sales Velocity & Movement Classification</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Calculated Days_activity and Sales_velocity (Total_Quantity / Days_activity) for movement classification. Bucketed SKUs using qcut into Fast/Medium/Slow categories.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Movement_category column enabling differentiated replenishment rules and inventory prioritization based on product movement patterns.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (66).png" alt="Velocity Calculation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Sales velocity calculation code</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (67).png" alt="Velocity Analysis" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Product movement classification visualization</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stockout Risk -->
+                <div class="task-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Stockout Risk Assessment</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Built monthly_sales aggregation and computed coefficient_of_variation to flag stockout_risk levels (low/medium/high).
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Monthly turnover analysis identifying ~15 SKUs with high stockout risk requiring immediate attention and proactive management.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (68).png" alt="Stockout Calculation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Stockout risk assessment algorithm</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (69).png" alt="Stockout Risk" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Stockout risk classification dashboard</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABC Classification -->
+                <div class="task-section">
+                    <h3><i class="fas fa-layer-group"></i> ABC Classification</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Implemented ABC analysis using cumulative revenue percentage with class thresholds (A: ≤80%, B: ≤95%, C: remainder).
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> ABC_Class column enabling prioritized inventory management, resource allocation, and strategic focus on high-value products.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (70).png"  alt="ABC Calculation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">ABC classification implementation</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (71).png"  alt="ABC Analysis" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">ABC product classification visualization</div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!-- Dashboard -->
+                <div class="task-section">
+                    <h3><i class="fas fa-chart-bar"></i> Dashboard Creation</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Built comprehensive Tableau dashboard integrating all product performance metrics and inventory optimization insights.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Interactive dashboard providing real-time insights into product performance, stockout risks, and inventory optimization recommendations.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (73).png" alt="Full Dashboard" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Merging datasets for the performance dashboard</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (74).png" alt="Dashboard Details" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Dashboard features</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://https://github.com/natnaelaster/Daily-exercise/tree/main/day_3_product_performance%20%26%20enventory%20Avalysis" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                    <a href="https://public.tableau.com/app/profile/natnael.birhanu/viz/productperformanceanalysis_17625987423580/Dashboard2" target="_blank" class="project-link">
+                        <i class="fas fa-chart-bar"></i> Tableau Dashboard
+                    </a>
+                    <a href="index_3.html#projects" class="project-link">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

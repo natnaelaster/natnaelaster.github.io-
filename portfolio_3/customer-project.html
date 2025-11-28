@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation & RFM Analysis | Natnael Birhanu</title>
+    <link rel="stylesheet" href="style_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .project-detail {
+            padding: 100px 0 2rem 0;
+            min-height: 100vh;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .project-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-lighter);
+            margin-bottom: 1rem;
+        }
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .task-section {
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .task-section:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        .task-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .task-description {
+            margin-bottom: 2rem;
+        }
+        .task-item {
+            margin-bottom: 1.5rem;
+        }
+        .task-item strong {
+            color: var(--text-lighter);
+        }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .screenshot-item {
+            text-align: center;
+        }
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .screenshot-item img:hover {
+            transform: scale(1.02);
+        }
+        .screenshot-caption {
+            margin-top: 0.5rem;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 149, 246, 0.4);
+        }
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+            .segment-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+          .kpi-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 3rem 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+        .kpi-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .kpi-label {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+         /* Segment Classification Styles */
+        .segment-classification {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .segment-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .segment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        }
+        .segment-card.champions {
+            border-left-color: #4CAF50;
+        }
+        .segment-card.loyal {
+            border-left-color: #2196F3;
+        }
+        .segment-card.at-risk {
+            border-left-color: #FF9800;
+        }
+        .segment-card.new-casual {
+            border-left-color: #9C27B0;
+        }
+        .segment-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .segment-count {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .segment-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index_3.html" style="text-decoration: none; color: inherit;">Natnael Birhanu</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index_3.html#about">About</a></li>
+                <li><a href="index_3.html#skills">Skills</a></li>
+                <li><a href="index_3.html#experience">Experience</a></li>
+                <li><a href="index_3.html#projects">Projects</a></li>
+                <li><a href="index_3.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <a href="index_3.html#projects" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            
+            <div class="project-header">
+                <h1>Customer Segmentation & RFM Analysis</h1>
+                <p class="project-highlight">Advanced customer segmentation using RFM analysis to drive targeted marketing strategies</p>
+            </div>
+
+            <!-- KPI Banner -->
+            <div class="kpi-banner">
+                <div class="kpi-item">
+                    <div class="kpi-value">4,000+</div>
+                    <div class="kpi-label">Customers Analyzed</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">2,308</div>
+                    <div class="kpi-label">New/Casual Customers</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">1,319</div>
+                    <div class="kpi-label">Champions</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">448</div>
+                    <div class="kpi-label">Loyal Customers</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">264</div>
+                    <div class="kpi-label">At-Risk Customers</div>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <!-- Data Preparation -->
+                <div class="task-section">
+                    <h3><i class="fas fa-database"></i> Data Preparation & Cleaning</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Loaded Excel dataset with standard data libraries and removed rows with missing CustomerID while filtering out non-positive quantities.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Clean sales-only dataframe with line-level revenue column (Total_amount) ready for analysis.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (51).png" alt="Data Cleaning Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Data cleaning and preparation code</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (52).png" alt="Cleaned Dataset" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Cleaned customer dataset preview</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RFM Metrics Calculation -->
+                <div class="task-section">
+                    <h3><i class="fas fa-calculator"></i> RFM Metrics Calculation</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Grouped by CustomerID to compute Recency (days since last purchase), Frequency (unique InvoiceNo count), and Monetary (sum of Total_amount).
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Comprehensive rfm_df with columns CustomerID, Recency, Frequency, Monetary for 4,000+ customers.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (54).png" alt="RFM Calculation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">RFM metrics calculation implementation</div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- RFM Scoring -->
+                <div class="task-section">
+                    <h3><i class="fas fa-chart-bar"></i> RFM Scoring System</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Binned Recency, Frequency, and Monetary values into 1–4 scores using qcut and ranked qcut methods.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Created R_score, F_score, M_score as integers with Total_score (sum) computed for comprehensive customer ranking.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (55).png" alt="RFM Scoring Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">RFM scoring algorithm implementation</div>
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <!-- Customer Segmentation -->
+                <div class="task-section">
+                    <h3><i class="fas fa-users"></i> Customer Segmentation</h3>
+                    <div class="segment-breakdown">
+                        <div class="segment-card champions">
+                            <div class="segment-header">
+                                <i class="fas fa-crown" style="color: #4CAF50;"></i>
+                                <h4>Champions</h4>
+                            </div>
+                            <div class="segment-count">1,319 Customers</div>
+                            <div class="segment-description">Recent, frequent, high-value customers - your brand advocates</div>
+                        </div>
+                        <div class="segment-card loyal">
+                            <div class="segment-header">
+                                <i class="fas fa-heart" style="color: #2196F3;"></i>
+                                <h4>Loyal Customers</h4>
+                            </div>
+                            <div class="segment-count">448 Customers</div>
+                            <div class="segment-description">Regular customers who respond well to promotions</div>
+                        </div>
+                        <div class="segment-card at-risk">
+                            <div class="segment-header">
+                                <i class="fas fa-exclamation-triangle" style="color: #FF9800;"></i>
+                                <h4>At Risk</h4>
+                            </div>
+                            <div class="segment-count">264 Customers</div>
+                            <div class="segment-description">High-value customers showing signs of inactivity</div>
+                        </div>
+                        <div class="segment-card new-casual">
+                            <div class="segment-header">
+                                <i class="fas fa-user-plus" style="color: #9C27B0;"></i>
+                                <h4>New/Casual</h4>
+                            </div>
+                            <div class="segment-count">2,308 Customers</div>
+                            <div class="segment-description">Recent customers with high conversion potential</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (56).png" alt="Segmentation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Customer segmentation logic</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (57).png" alt="Segmentation Chart" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Customer segment distribution visualization</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- CLV Analysis -->
+                <div class="task-section">
+                    <h3><i class="fas fa-trophy"></i> Customer Lifetime Value Analysis</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Calculated average customer lifetime value (mean Monetary) and extracted top customers by Monetary value.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Computed average CLV and identified Top-10 customers by spend for targeted CRM follow-up and retention strategies.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (59).png" alt="CLV Calculation Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Customer lifetime value calculation</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (60).png" alt="Top Customers" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Top 10 customers by spending</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment Analysis -->
+                <div class="task-section">
+                    <h3><i class="fas fa-chart-pie"></i> Segment Analysis & Distributions</h3>
+                    <div class="task-description">
+                        <div class="task-item">
+                            <strong>Task:</strong> Aggregated segment-level KPIs (count, mean Recency, Frequency, Monetary) and plotted histograms for Recency, Frequency, Monetary distributions.
+                        </div>
+                        <div class="task-item">
+                            <strong>Result:</strong> Comprehensive segment analysis table and three distribution charts for stakeholder review and strategic planning.
+                        </div>
+                    </div>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (61).png" alt="Segment Analysis Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Segment-level analysis implementation</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="assets/Screenshot (62).png" alt="Segment KPIs" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Segment performance metrics dashboard</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/natnaelaster/Daily-exercise/tree/main/day_2_customer_segmentatio_analysis" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                    <a href="https://public.tableau.com/app/profile/natnael.birhanu/viz/day_2_customer_segmentation/Dashboard3" target="_blank" class="project-link">
+                        <i class="fas fa-chart-bar"></i> Tableau Dashboard
+                    </a>
+                    <a href="index_3.html#projects" class="project-link">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
