@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Performance & Inventory Optimization | Natnael Birhanu</title>
+    <title>E-Commerce Sales Analysis | Natnael Birhanu</title>
     <link rel="stylesheet" href="style_3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -133,14 +133,14 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index_3.html" style="text-decoration: none; color: inherit;">Natnael Birhanu</a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">Natnael Birhanu</a>
             </div>
             <ul class="nav-links">
-                <li><a href="index_3.html#about">About</a></li>
-                <li><a href="index_3.html#skills">Skills</a></li>
-                <li><a href="index_3.html#experience">Experience</a></li>
-                <li><a href="index_3.html#projects">Projects</a></li>
-                <li><a href="index_3.html#contact">Contact</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -152,184 +152,178 @@
 
     <section class="project-detail">
         <div class="container">
-            <a href="index_3.html#projects" class="back-button">
+            <a href="index.html#projects" class="back-button">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
             
             <div class="project-header">
-                <h1>Product Performance & Inventory Optimization</h1>
-                <p class="project-highlight">Comprehensive product analysis and inventory optimization for 3,500+ SKUs</p>
+                <h1>E-Commerce Sales Performance Dashboard</h1>
+                <p class="project-highlight">Analysis of 400,000+ transactions revealing market concentration and seasonal patterns</p>
             </div>
 
+            
             <!-- KPI Banner -->
             <div class="kpi-banner">
                 <div class="kpi-item">
-                    <div class="kpi-value">3,500+</div>
-                    <div class="kpi-label">SKUs Analyzed</div>
+                    <div class="kpi-value">400K+</div>
+                    <div class="kpi-label">Transactions Analyzed</div>
                 </div>
                 <div class="kpi-item">
-                    <div class="kpi-value">80/20</div>
-                    <div class="kpi-label">Revenue Distribution</div>
+                    <div class="kpi-value">84%</div>
+                    <div class="kpi-label">UK Revenue Share</div>
                 </div>
                 <div class="kpi-item">
-                    <div class="kpi-value">15</div>
-                    <div class="kpi-label">High-Risk SKUs</div>
+                    <div class="kpi-value">25%</div>
+                    <div class="kpi-label">Q4 Sales Spike</div>
                 </div>
                 <div class="kpi-item">
-                    <div class="kpi-value">8</div>
-                    <div class="kpi-label">Seasonal Categories</div>
+                    <div class="kpi-value">7%</div>
+                    <div class="kpi-label">Top 5 Products Revenue</div>
                 </div>
                 <div class="kpi-item">
-                    <div class="kpi-value">12</div>
-                    <div class="kpi-label">Declining Products</div>
+                    <div class="kpi-value">2%</div>
+                    <div class="kpi-label">Return Rate</div>
                 </div>
             </div>
 
+
             <div class="project-content">
-                <!-- Data Preparation -->
+                <!-- Data Import & Libraries -->
                 <div class="task-section">
-                    <h3><i class="fas fa-database"></i> Data Preparation & Libraries</h3>
+                    <h3><i class="fas fa-database"></i> Data Import & Libraries</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Loaded comprehensive data analysis libraries and read Online Retail.xlsx dataset. Cleaned raw dataframe by dropping null values and removing non-positive quantities.
+                            <strong>Task:</strong> Loaded Online Retail.xlsx and imported pandas / matplotlib for comprehensive data analysis.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> Optimized dataset ready for comprehensive product performance analysis with clean, reliable data.
+                            <strong>Result:</strong> Raw transactions dataset available in df for exploratory analysis and visualization.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (63).png" alt="Data Preparation Code" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Data preparation and cleaning code</div>
+                            <img src="assets/Screenshot (40).png" alt="Data Import Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Data import and library setup</div>
                         </div>
-                        <div class="screenshot-item">
-                            <img src="assets/Screenshot (64).png" alt="Cleaned Dataset" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Cleaned product dataset preview</div>
-                        </div>
+                        
                     </div>
                 </div>
 
-                <!-- Product Aggregation -->
+                <!-- Data Cleaning -->
                 <div class="task-section">
-                    <h3><i class="fas fa-calculator"></i> Product Aggregation & KPIs</h3>
+                    <h3><i class="fas fa-broom"></i> Data Cleaning & Preparation</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Created line-level revenue and grouped by StockCode + Description to compute product KPIs including Total_revenue, Total_Quantity, Num_Transactions, and sales dates.
+                            <strong>Task:</strong> Removed missing CustomerID rows and separated sales from returns for accurate analysis.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> Comprehensive product_performance dataframe with detailed product-level metrics for 3,500+ SKUs.
+                            <strong>Result:</strong> Cleaned dataset with sales and returns properly categorized. Calculated overall return rate of approximately 2% in the dataset.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (65).png" alt="Product Aggregation Code" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Product aggregation implementation</div>
+                            <img src="assets/Screenshot (41).png" alt="Data Cleaning Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Data cleaning process</div>
                         </div>
                        
                     </div>
                 </div>
 
-                <!-- Sales Velocity -->
+                <!-- Monthly Sales Analysis -->
                 <div class="task-section">
-                    <h3><i class="fas fa-running"></i> Sales Velocity & Movement Classification</h3>
+                    <h3><i class="fas fa-chart-line"></i> Monthly Sales Analysis</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Calculated Days_activity and Sales_velocity (Total_Quantity / Days_activity) for movement classification. Bucketed SKUs using qcut into Fast/Medium/Slow categories.
+                            <strong>Task:</strong> Aggregated Total_sales by month name and visualized as a comprehensive line chart.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> Movement_category column enabling differentiated replenishment rules and inventory prioritization based on product movement patterns.
+                            <strong>Result:</strong> Identified strong seasonality patterns — November and December account for over 25% of total sales. Chart formatted with K/M y-axis labels for enhanced readability.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (66).png" alt="Velocity Calculation Code" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Sales velocity calculation code</div>
+                            <img src="assets/Screenshot (44).png" alt="Monthly Analysis Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Monthly sales analysis code</div>
                         </div>
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (67).png" alt="Velocity Analysis" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Product movement classification visualization</div>
+                            <img src="assets/Screenshot (42).png" alt="Monthly Sales Trend" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Monthly sales trend visualization</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stockout Risk -->
+                <!-- Geographic Analysis -->
                 <div class="task-section">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Stockout Risk Assessment</h3>
+                    <h3><i class="fas fa-globe"></i> Geographic Market Analysis</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Built monthly_sales aggregation and computed coefficient_of_variation to flag stockout_risk levels (low/medium/high).
+                            <strong>Task:</strong> Aggregated Total_sales by Country and computed each country's percentage contribution to total revenue.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> Monthly turnover analysis identifying ~15 SKUs with high stockout risk requiring immediate attention and proactive management.
+                            <strong>Result:</strong> Discovered heavy geographic concentration with United Kingdom accounting for 84% of total revenue. Created visualizations of top-5 countries with percentage share analysis.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (68).png" alt="Stockout Calculation Code" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Stockout risk assessment algorithm</div>
+                            <img src="assets/Screenshot (45).png" alt="Country Analysis Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Country analysis implementation</div>
                         </div>
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (69).png" alt="Stockout Risk" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Stockout risk classification dashboard</div>
+                            <img src="assets/Screenshot (46).png" alt="Country Revenue Distribution" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Revenue distribution by country</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ABC Classification -->
+                <!-- Product Performance -->
                 <div class="task-section">
-                    <h3><i class="fas fa-layer-group"></i> ABC Classification</h3>
+                    <h3><i class="fas fa-box"></i> Product Revenue Ranking</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Implemented ABC analysis using cumulative revenue percentage with class thresholds (A: ≤80%, B: ≤95%, C: remainder).
+                            <strong>Task:</strong> Aggregated revenue by Product Description to identify top-performing products and compute contribution percentages.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> ABC_Class column enabling prioritized inventory management, resource allocation, and strategic focus on high-value products.
+                            <strong>Result:</strong> Top 5 products account for approximately 7% of total revenue. Generated top-10 product lists for merchandising strategy and visualized with bar charts using K/M y-axis formatting.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (70).png"  alt="ABC Calculation Code" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">ABC classification implementation</div>
+                            <img src="assets/Screenshot (47).png" alt="Product Analysis Code" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Product performance analysis code</div>
                         </div>
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (71).png"  alt="ABC Analysis" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">ABC product classification visualization</div>
+                            <img src="assets/Screenshot (48).png" alt="Top Products Analysis" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Top performing products visualization</div>
                         </div>
                     </div>
                 </div>
 
-            
-                <!-- Dashboard -->
+                <!-- Dashboard Creation -->
                 <div class="task-section">
                     <h3><i class="fas fa-chart-bar"></i> Dashboard Creation</h3>
                     <div class="task-description">
                         <div class="task-item">
-                            <strong>Task:</strong> Built comprehensive Tableau dashboard integrating all product performance metrics and inventory optimization insights.
+                            <strong>Task:</strong> Built comprehensive Tableau dashboard with K/M formatting for presentation-ready visuals.
                         </div>
                         <div class="task-item">
-                            <strong>Result:</strong> Interactive dashboard providing real-time insights into product performance, stockout risks, and inventory optimization recommendations.
+                            <strong>Result:</strong> Interactive dashboard providing insights into sales trends, product performance, and geographic distribution.
                         </div>
                     </div>
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="assets/Screenshot (73).png" alt="Full Dashboard" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Merging datasets for the performance dashboard</div>
-                        </div>
-                        <div class="screenshot-item">
-                            <img src="assets/Screenshot (74).png" alt="Dashboard Details" onerror="this.style.display='none'">
-                            <div class="screenshot-caption">Dashboard features</div>
+                            <img src="assets/Screenshot (50).png" alt="Dashboard Details" onerror="this.style.display='none'">
+                            <div class="screenshot-caption">Dashboard interactive elements</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-links">
-                    <a href="https://https://github.com/natnaelaster/Daily-exercise/tree/main/day_3_product_performance%20%26%20enventory%20Avalysis" target="_blank" class="project-link">
+                    <a href="https://github.com/natnaelaster/Daily-exercise/tree/main/day_1_sales_analysis" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Code
                     </a>
-                    <a href="https://public.tableau.com/app/profile/natnael.birhanu/viz/productperformanceanalysis_17625987423580/Dashboard2" target="_blank" class="project-link">
-                        <i class="fas fa-chart-bar"></i> Tableau Dashboard
+                    <a href="https://public.tableau.com/views/day_1_sales_dashboard/SalesPerformanceDashboard" target="_blank" class="project-link">
+                        <i class="fas fa-chart-bar"></i> Live Dashboard
                     </a>
-                    <a href="index_3.html#projects" class="project-link">
+                    <a href="index.html#projects" class="project-link">
                         <i class="fas fa-arrow-left"></i> Back to Projects
                     </a>
                 </div>
@@ -339,4 +333,7 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>>
+
+
+
