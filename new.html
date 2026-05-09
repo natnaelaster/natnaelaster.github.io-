@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natnael Birhanu | Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FCF9F2;
+            color: #2C2A24;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --olive-dark: #3E5C1B;
+            --olive-muted: #5A7A2E;
+            --brown-light: #C4B5A0;
+            --bg-cream: #FDF9F0;
+            --shadow-sm: 0 10px 25px -8px rgba(0,0,0,0.05);
+            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 249, 240, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(62, 92, 27, 0.15);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .nav-logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--olive-dark);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2C2A24;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--olive-dark); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--olive-dark); }
+
+        /* Hero Section - Full background image, no overlay, contacts vertical right */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+        .hero-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .hero-left {
+            flex: 2;
+            background: rgba(253, 249, 240, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 48px;
+            border: 1px solid rgba(62, 92, 27, 0.2);
+        }
+        .hero-left h1 {
+            font-size: 3rem;
+            color: var(--olive-dark);
+            margin-bottom: 0.5rem;
+        }
+        .hero-left h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .highlight { color: var(--olive-dark); font-weight: 700; }
+        .hero-left p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+        .hero-right {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            background: rgba(253, 249, 240, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            border-radius: 48px;
+            border: 1px solid rgba(62, 92, 27, 0.2);
+        }
+        .contact-icon-vertical {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #2C2A24;
+            padding: 0.8rem;
+            border-radius: 60px;
+            transition: 0.2s;
+        }
+        .contact-icon-vertical i {
+            width: 40px;
+            height: 40px;
+            background: rgba(62, 92, 27, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--olive-dark);
+        }
+        .contact-icon-vertical:hover { background: rgba(62, 92, 27, 0.1); transform: translateX(5px); }
+
+        /* About + Photo integrated section (moved up) */
+        #about {
+            padding: 5rem 0;
+            background: var(--bg-cream);
+        }
+        .about-integrated {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text { flex: 1.5; }
+        .about-image { flex: 1; text-align: center; }
+        .about-image img {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--olive-muted);
+            box-shadow: var(--shadow-md);
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--olive-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Skills Section - list style */
+        #skills { padding: 4rem 0; background: white; }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .skill-block {
+            flex: 1;
+            min-width: 220px;
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 28px;
+            border: 1px solid rgba(62, 92, 27, 0.1);
+        }
+        .skill-block h3 { margin-bottom: 1rem; color: var(--olive-dark); }
+        .skill-block ul { list-style: none; }
+        .skill-block li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+        .skill-block li::before { content: "▹"; position: absolute; left: 0; color: var(--olive-dark); }
+
+        /* Certificate Cards (old website style) */
+        .certificates-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .certificate-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(62, 92, 27, 0.12);
+        }
+        .certificate-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1.8rem;
+        }
+        .certificate-info { flex: 2; }
+        .certificate-preview { flex: 1.2; min-width: 200px; background: #F4EFE6; border-radius: 24px; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .certificate-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+        .certificate-logo { width: 50px; height: 50px; object-fit: contain; }
+        .download-button {
+            display: inline-block;
+            margin-top: 1rem;
+            background: var(--olive-dark);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .project-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+            border: 1px solid rgba(62, 92, 27, 0.12);
+        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: #E9E2D6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-info { padding: 1.5rem; }
+        .project-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .project-desc { color: #4a3f2f; }
+
+        /* Modal with detailed explanation and screenshot spaces */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 30, 28, 0.5);
+            backdrop-filter: blur(20px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(24px);
+            max-width: 850px;
+            width: 90%;
+            border-radius: 48px;
+            padding: 32px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(62, 92, 27, 0.2);
+        }
+        .close-modal {
+            float: right;
+            font-size: 28px;
+            cursor: pointer;
+            font-weight: 300;
+        }
+        .kpi-modal-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .kpi-badge {
+            background: rgba(62, 92, 27, 0.1);
+            border-radius: 28px;
+            padding: 12px 20px;
+            flex: 1;
+            text-align: center;
+        }
+        .kpi-number-animate {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--olive-dark);
+        }
+        pre {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 1rem;
+            border-radius: 20px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+        }
+        .screenshot-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .screenshot-placeholder {
+            flex: 1;
+            background: #E8E0D4;
+            border-radius: 28px;
+            padding: 2rem;
+            text-align: center;
+            color: #5a4a38;
+            border: 1px dashed var(--olive-dark);
+        }
+
+        /* Contact bottom section - vertical list */
+        #contact {
+            background: #2F2C26;
+            color: #DBD2C4;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .contact-bottom-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .contact-bottom-list a {
+            color: #DBD2C4;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        .contact-bottom-list a:hover { color: var(--olive-muted); }
+
+        footer {
+            background: #1E1C18;
+            color: #aaa;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .hero-wrapper { flex-direction: column; }
+            .hero-right { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .skills-list { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="nav-logo"><a href="#">Natnael Birhanu</a></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Certificates</a></li><li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<!-- Hero: Full image background, no overlay, contacts vertical right -->
+<section id="hero">
+    <div class="hero-wrapper">
+        <div class="hero-left">
+            <h1>Natnael Birhanu</h1>
+            <h2>Junior <span class="highlight">Data Analyst</span></h2>
+            <p>Transforming raw data into actionable insights that drive strategic decisions and business growth.</p>
+        </div>
+        <div class="hero-right">
+            <a href="mailto:natnaelaster42@gmail.com" class="contact-icon-vertical"><i class="fas fa-envelope"></i> Email</a>
+            <a href="tel:+251984802077" class="contact-icon-vertical"><i class="fas fa-phone"></i> Phone</a>
+            <a href="https://www.linkedin.com/in/natnael-birhanu-9647b7363" class="contact-icon-vertical"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/natnaelaster" class="contact-icon-vertical"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://public.tableau.com/app/profile/natnael.birhanu/vizzes" class="contact-icon-vertical"><i class="fas fa-chart-bar"></i> Tableau</a>
+        </div>
+    </div>
+</section>
+
+<!-- About + Photo section (integrated) -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-integrated">
+            <div class="about-text">
+                <p>Results-driven Junior Data Analyst proficient in Python, SQL, and Tableau, passionate about transforming complex datasets into actionable insights. Skilled in the full data analysis lifecycle—from wrangling and exploratory analysis to building interactive dashboards—to support data-driven strategic decisions.</p>
+                <br>
+                <p>As a 4th-year Computer Science student, I am deeply passionate about data and related concepts, constantly exploring new ways to leverage analytics to solve complex problems and drive innovation.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Natnael Birhanu">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section - Separate List -->
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-list">
+            <div class="skill-block"><h3><i class="fas fa-code"></i> Programming & DB</h3><ul><li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li><li>SQL (MySQL, PostgreSQL)</li></ul></div>
+            <div class="skill-block"><h3><i class="fas fa-chart-line"></i> Visualization & BI</h3><ul><li>Tableau, Power BI</li><li>Excel / Google Sheets (Advanced)</li></ul></div>
+            <div class="skill-block"><h3><i class="fas fa-tools"></i> Tools & Platforms</h3><ul><li>Git / GitHub, Jupyter Notebook</li><li>Looker Studio, BigQuery (Basic)</li></ul></div>
+        </div>
+    </div>
+</section>
+
+<!-- Certificates (old website style) -->
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Experience & Certificates</h2>
+        <div class="certificates-grid">
+            <div class="certificate-card"><div class="certificate-content"><div class="certificate-info"><div class="certificate-header"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Tata_logo.svg/1024px-Tata_logo.svg.png" alt="Tata" class="certificate-logo"><div><h3>Tata Group (Forage)</h3><p>June 2025</p></div></div><p>Executive dashboards, data visualization for TCS.</p><a href="#" class="download-button">View Certificate</a></div><div class="certificate-preview"><div class="pdf-preview">📊 Dashboard Preview</div></div></div></div>
+            <div class="certificate-card"><div class="certificate-content"><div class="certificate-info"><div class="certificate-header"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Deloitte_logo.svg/1280px-Deloitte_logo.svg.png" alt="Deloitte" class="certificate-logo"><div><h3>Deloitte (Forage)</h3><p>May 2025</p></div></div><p>Forensic data analysis, fraud detection simulation.</p><a href="#" class="download-button">View Certificate</a></div><div class="certificate-preview"><div class="pdf-preview">🔍 Fraud Analytics</div></div></div></div>
+            <div class="certificate-card"><div class="certificate-content"><div class="certificate-info"><div class="certificate-header"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Udacity_logo.svg/2560px-Udacity_logo.svg.png" alt="Udacity" class="certificate-logo"><div><h3>Data Analysis Fundamentals</h3><p>July 2025</p></div></div><p>Python, Pandas, data visualization, real-world projects.</p><a href="#" class="download-button">View Certificate</a></div><div class="certificate-preview"><div class="pdf-preview">📜 Nanodegree</div></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section with detailed modals including screenshots space -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+</section>
+
+<!-- Contact Section - bottom list -->
+<section id="contact">
+    <div class="container">
+        <h2 style="color: #DBD2C4;">Let's Connect</h2>
+        <div class="contact-bottom-list">
+            <a href="mailto:natnaelaster42@gmail.com"><i class="fas fa-envelope"></i> natnaelaster42@gmail.com</a>
+            <a href="tel:+251984802077"><i class="fas fa-phone"></i> +251 984 802 077</a>
+            <a href="https://github.com/natnaelaster" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/natnael-birhanu-9647b7363" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
+</section>
+<footer><div class="container"><p>© 2025 Natnael Birhanu — Data Analyst Portfolio</p></div></footer>
+
+<!-- Modal -->
+<div id="projectModal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><div id="modalBody"></div></div></div>
+
+<script>
+    const projects = [
+        { id:1, title:"BMW Car Sales Analysis", tools:"SQL + Tableau", coverImg:"https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=200&fit=crop", headline:"North America: 40% revenue | $90k+ vehicles drive 38% sales", kpiList:[{label:"Revenue NA", value:40, suffix:"%"},{label:"Premium Revenue", value:38, suffix:"%"},{label:"Best Year", value:2022, suffix:""}], insights:"Electric & hybrid sales growing 22% YoY. Top model contributed 18% of total sales. Recommendation: focus on premium segments.", codeSql:"SELECT region, SUM(sales_volume) FROM bmw_sales GROUP BY region ORDER BY 2 DESC LIMIT 3;", result:"Interactive Tableau dashboard + sales strategy recommendations.", explanation:"This project involved cleaning BMW sales data, performing regional aggregations, and identifying that premium vehicles (>90k) generate highest margins. The Tableau dashboard includes filters for model, year, and region.", screenshot1:"📊 Sales by region bar chart", screenshot2:"💻 SQL query results" },
+        { id:2, title:"Customer RFM Segmentation", tools:"Python + Tableau", coverImg:"https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=400&h=200&fit=crop", headline:"1,319 Champions = 65% revenue | $460K at-risk", kpiList:[{label:"Champions", value:1319, suffix:""},{label:"At-risk revenue", value:460, suffix:"K"},{label:"New/Casual", value:2308, suffix:""}], insights:"At-risk customers represent high spenders who haven't purchased recently. Reactivation potential +18% LTV.", codeSql:"SELECT customer_id, recency, frequency, monetary FROM customers;", result:"Segmentation dashboard & retention campaigns.", explanation:"RFM analysis implemented using Python Pandas. Segments created: Champions, Loyal, At-Risk, New/Casual. Marketing strategies proposed per segment.", screenshot1:"📊 RFM distribution chart", screenshot2:"🐍 Python segmentation code" },
+        { id:3, title:"Product Performance & Inventory", tools:"Python + Tableau", coverImg:"https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=400&h=200&fit=crop", headline:"80/20 rule | 12 declining products | 8 seasonal categories", kpiList:[{label:"SKUs analyzed", value:3500, suffix:""},{label:"Stockout risk reduction", value:30, suffix:"%"},{label:"Declining SKUs", value:12, suffix:""}], insights:"Safety stock optimization increased turnover by 22%. Seasonal SKUs require 45 days lead time.", codeSql:"SELECT stockCode, AVG(quantity) as velocity FROM sales GROUP BY stockCode;", result:"Inventory optimization dashboard with reorder points.", explanation:"Calculated sales velocity, safety stock, and EOQ for 3,500+ SKUs. Identified seasonal patterns using coefficient of variation.", screenshot1:"📦 Inventory heatmap", screenshot2:"📈 Sales velocity trends" },
+        { id:4, title:"Medical Cost Prediction", tools:"ML (Linear Regression)", coverImg:"https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=200&fit=crop", headline:"Test MAE ↓25% ($4,251 vs $5,690)", kpiList:[{label:"MAE improvement", value:25, suffix:"%"},{label:"Smoker impact", value:6822, suffix:"USD"},{label:"Region variance", value:600, suffix:"USD"}], insights:"Smoking status (+$6,822) strongest predictor. BMI >30 adds +18% cost.", codeSql:"# One-hot encoding + LinearRegression\nfrom sklearn.linear_model import LinearRegression", result:"Predictive underwriting model.", explanation:"Built linear regression model to predict insurance charges. Log transformation improved accuracy. Feature importance analysis revealed smoking as dominant factor.", screenshot1:"📉 Residual plot", screenshot2:"🤖 Model coefficients bar chart" },
+        { id:5, title:"Web Scraping Laptop Market", tools:"Python / BeautifulSoup", coverImg:"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=200&fit=crop", headline:"r=0.65 RAM vs price | SSD premium 35%", kpiList:[{label:"Laptops scraped", value:800, suffix:"+"},{label:"SSD premium", value:35, suffix:"%"},{label:"Mean price", value:450, suffix:"USD"}], insights:"16GB RAM laptops average $650 vs $420 for 8GB. SSD vs HDD price gap visible.", codeSql:"# scraping loop example\nfor page in range(1,51):\n    response = requests.get(url)", result:"Price segmentation dashboard & market trends report.", explanation:"Web scraped Jumia Uganda using requests/BeautifulSoup. Extracted RAM, storage, CPU via regex. Analyzed price determinants using correlation and box plots.", screenshot1:"🕸️ Scraping script preview", screenshot2:"📊 Price vs RAM boxplot" },
+        { id:6, title:"HubSpot CRM Analytics", tools:"SQL + Power BI", coverImg:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop", headline:"$6M revenue | Win rate 57%", kpiList:[{label:"Total Revenue", value:6, suffix:"M"},{label:"Top Agent Win Rate", value:67, suffix:"%"},{label:"US_West revenue", value:2.2, suffix:"M"}], insights:"MG Advanced product generated $2.2M alone. Sales cycle shortest in Q2.", codeSql:"SELECT agent, AVG(win_flag) win_rate FROM deals GROUP BY agent ORDER BY win_rate DESC;", result:"Sales performance dashboard + pipeline optimization.", explanation:"Merged HubSpot CRM data (accounts, pipeline, products) using SQL. Built Power BI dashboard tracking win rates, revenue by region, and product performance.", screenshot1:"📊 Power BI dashboard preview", screenshot2:"📋 SQL joins & aggregations" }
+    ];
+
+    const grid = document.getElementById('projectsGrid');
+    function renderProjects() {
+        grid.innerHTML = projects.map(p => `
+            <div class="project-card" onclick="openProjectModal(${p.id})">
+                <div class="project-img"><img src="${p.coverImg}" alt="${p.title}"></div>
+                <div class="project-info"><h3 class="project-title">${p.title}</h3><p class="project-desc">${p.headline}</p><span style="color:var(--olive-dark);">🔍 Click for details →</span></div>
+            </div>
+        `).join('');
+    }
+
+    window.openProjectModal = (id) => {
+        const p = projects.find(x => x.id === id);
+        const modalDiv = document.getElementById('modalBody');
+        modalDiv.innerHTML = `
+            <h2>${p.title}</h2>
+            <p><strong>🛠️ Tools:</strong> ${p.tools}</p>
+            <div class="kpi-modal-grid">
+                ${p.kpiList.map(k => `<div class="kpi-badge"><div class="kpi-number-animate" data-target="${k.value}" data-suffix="${k.suffix}">0</div><div>${k.label}</div></div>`).join('')}
+            </div>
+            <p><strong>📖 Explanation:</strong> ${p.explanation}</p>
+            <p><strong>💡 Key Insights:</strong> ${p.insights}</p>
+            <div class="screenshot-row">
+                <div class="screenshot-placeholder"><i class="fas fa-chart-line"></i><br>${p.screenshot1}</div>
+                <div class="screenshot-placeholder"><i class="fas fa-code"></i><br>${p.screenshot2}</div>
+            </div>
+            <p><strong>💻 Code snippet:</strong></p>
+            <pre><code>${p.codeSql}</code></pre>
+            <p><strong>✅ Final Outcome:</strong> ${p.result}</p>
+            <button class="download-button" onclick="document.getElementById('projectModal').style.display='none'" style="margin-top:1rem;">Close</button>
+        `;
+        document.getElementById('projectModal').style.display = 'flex';
+        // Animate KPIs
+        const numbers = document.querySelectorAll('#modalBody .kpi-number-animate');
+        numbers.forEach(el => {
+            const target = parseInt(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            let curr = 0;
+            const step = Math.ceil(target / 40);
+            const upd = () => {
+                curr += step;
+                if(curr < target) { el.innerText = curr + (suffix ? ' ' + suffix : ''); requestAnimationFrame(upd); }
+                else { el.innerText = target + (suffix ? ' ' + suffix : ''); }
+            };
+            upd();
+        });
+    };
+
+    document.querySelector('.close-modal')?.addEventListener('click', () => document.getElementById('projectModal').style.display = 'none');
+    window.onclick = (e) => { if(e.target === document.getElementById('projectModal')) document.getElementById('projectModal').style.display = 'none'; };
+    renderProjects();
+    document.getElementById('hamburger')?.addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('show'));
+</script>
+</body>
+</html>
